@@ -3,9 +3,9 @@ import time
 import pygame
 import sys
 import copy
-import random  # Week 5: For randomize functionality
+import random  
 
-# --- Pygame Constants ---
+
 CELL_SIZE = 20
 CELL_SEPARATION = 1
 GRID_LINE_COLOR = (50, 50, 50)
@@ -105,7 +105,6 @@ def draw_grid(screen, grid):
         for cell in row:
             color = ALIVE_COLOR if cell.state == CellState.ALIVE else DEAD_COLOR
             pygame.draw.rect(screen, color, cell.rect)
-            # pygame.draw.rect(screen, GRID_LINE_COLOR, cell.rect, 1) # Optional
 
 if __name__ == "__main__":
     grid_width = 40
@@ -132,7 +131,7 @@ if __name__ == "__main__":
             if event.type == pygame.QUIT:
                 running = False
 
-            # Week 5: Keyboard Input
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     simulation_active = not simulation_active
@@ -146,7 +145,7 @@ if __name__ == "__main__":
                         for cell in row:
                             cell.state = CellState.ALIVE if random.random() < 0.2 else CellState.DEAD
 
-            # Week 5: Mouse Click to Toggle
+            
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 pos = pygame.mouse.get_pos()
                 for row in grid:
